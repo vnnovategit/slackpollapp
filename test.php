@@ -174,7 +174,8 @@ if(trim($request_params[0])=="create"){
 	$rowPoll = $stmtPoll->fetch();
 
 	if($rowPoll){
-		$payload = array("text"=>"@ ".$_POST['user_name']."Yes there are one active poll.");
+		$gained_vote = $rowPoll["gained_vote"];
+		$payload = array("text"=>"@ ".$_POST['user_name']."There is ".$gained_vote." voting balance for current poll.");
 	}else{
 		$payload = array("text"=>"@ ".$_POST['user_name']."Sorry there are no any active poll.");
 	}
