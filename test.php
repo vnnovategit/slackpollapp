@@ -146,7 +146,8 @@ if(trim($request_params[0])=="create"){
 		}
 	    
 	    //here updated or insert gained point in pollmaster
-	    $newPollPoints = ($rowPoll["gained_vote"]+$newPollGainedPoints); 
+	    //$newPollPoints = ($rowPoll["gained_vote"]+$newPollGainedPoints); 
+	    $newPollPoints = ($rowPoll["gained_vote"]+1); 
 	    $pollId 	   = $rowPoll["id"];		
         $updatePollSql = "UPDATE pollmaster SET gained_vote=$newPollPoints WHERE id=$pollId";
         $result = $conn->query($updatePollSql);
